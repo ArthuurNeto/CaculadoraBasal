@@ -1,0 +1,70 @@
+def info_usuario():
+    genero = (input('qual seu genero: '))
+    idade = int(input('qual sua idade: '))
+    peso = int(input('qual seu peso: '))
+    altura = int(input('qual sua altura: '))
+
+    if genero == 'masculino':
+        g1 = 66
+        ps = 13.8 * peso
+        al = 5 * altura
+        id1 = 6.8 * idade
+
+    elif genero == 'feminino':
+        g1 = 655
+        ps = 9.6 * peso
+        al = 1.8 * altura
+        id1 = 4.7 * idade
+
+    tmb_resultado = g1 + ps + al - id1
+    return(int(tmb_resultado))
+
+
+def calculo_atividade(tmb_resultado):
+    nivel_atividade = input('qual seu nivel de atividade (nenhuma , leve, moderada, pesada, or extrema): ')
+
+    if nivel_atividade == 'nenhuma':
+       nivel_atividade = 1.2 * tmb_resultado
+    elif nivel_atividade == 'leve':
+         nivel_atividade = 1.375 * tmb_resultado
+    elif nivel_atividade == 'moderada':
+         nivel_atividade = 1.55 * tmb_resultado
+    elif nivel_atividade == 'pesada':
+         nivel_atividade = 1.725 * tmb_resultado
+    elif nivel_atividade == 'extrema':
+        nivel_atividade = 1.9 * tmb_resultado
+
+    return(int(nivel_atividade))
+
+
+def ganho_ou_perda(activity_level):
+    objetivo = input('Gostaria de perder, manter, ou ganhar peso: ')
+
+    if objetivo == 'perder':
+        calorias = activity_level - 500
+    elif objetivo == 'manter':
+        calorias = activity_level
+    elif objetivo == 'ganhar':
+        ganho = int(input('Gain 1 or 2 pounds per week? Enter 1 or 2: '))
+        if ganho == 1:
+            calorias = activity_level + 500
+        elif ganho == 2:
+            calorias = activity_level + 1000
+
+    return(int(calorias))
+
+formula = info_usuario()
+tmb_resultado = formula
+atividade = calculo_atividade(tmb_resultado)
+meta = ganho_ou_perda(atividade)
+print(meta)
+
+   
+
+
+
+
+
+
+
+
